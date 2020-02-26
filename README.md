@@ -6,6 +6,12 @@
 ./testdata/gen.sh
 ```
 
+## Test
+
+```bash
+go test -v ./...
+```
+
 ## Benchmark
 
 ```bash

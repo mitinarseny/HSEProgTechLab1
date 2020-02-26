@@ -45,7 +45,7 @@ func TestMain(m *testing.M) {
 	flag.Parse()
 	if flag.NArg() == 0 {
 		log.Print("no data was provided")
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	data = make([]sort.Interface, 0, flag.NArg())
