@@ -13,3 +13,7 @@ clean:
 .PHONY: bench
 bench: $(wildcard testdata/*.json)
 	go test -timeout 0 -bench . -args $(sort $^)
+
+.PHONY: report
+report:
+	docker-compose up
