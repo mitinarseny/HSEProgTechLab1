@@ -3,17 +3,17 @@
 ## Generate data
 
 ```bash
-./testdata/gen.sh
+make gen
 ```
 
 ## Test
 
 ```bash
-go test -v ./...
+make test
 ```
 
 ## Benchmark
 
 ```bash
-go test -bench . -args $(find testdata -name '*.json') 
+make bench
 ```
