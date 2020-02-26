@@ -2,9 +2,7 @@ package sort
 
 import "sort"
 
-type Sortable sort.Interface
-
-func SelectSort(s Sortable) {
+func Select(s sort.Interface) {
 	length := s.Len()
 	for bound := 0; bound < length; bound++ {
 		minInd := bound

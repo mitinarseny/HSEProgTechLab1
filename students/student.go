@@ -3,10 +3,10 @@ package students
 import "fmt"
 
 type Student struct {
-	FullName    string `json:"full_name"`
+	FullName    string `json:"fullName"`
 	Faculty     string `json:"faculty"`
 	Speciality  string `json:"speciality"`
-	TotalPoints uint   `json:"total_points"`
+	TotalPoints uint   `json:"totalPoints"`
 }
 
 func (s *Student) String() string {
@@ -17,6 +17,18 @@ type lessFunc func(s1, s2 *Student) bool
 
 func ByFullName(s1, s2 *Student) bool {
 	return s1.FullName < s2.FullName
+}
+
+func ByFaculty(s1, s2 *Student) bool {
+	return s1.Faculty < s2.Faculty
+}
+
+func BySpeciality(s1, s2 *Student) bool {
+	return s1.Speciality < s2.Speciality
+}
+
+func ByTotalPoints(s1, s2 *Student) bool {
+	return s1.TotalPoints < s2.TotalPoints
 }
 
 func Order(students []Student, by ...lessFunc) *multiSorter {
@@ -37,12 +49,12 @@ func (s *multiSorter) Len() int {
 
 func (s *multiSorter) Less(i, j int) bool {
 	p, q := &s.students[i], &s.students[j]
-	for _, l := range s.less[:len(s.less)-1] {
+	for _, l := range s.less {
 		if l(p, q) {
 			return true
 		}
 	}
-	return s.less[len(s.less)-1](p, q)
+	return false
 }
 
 func (s *multiSorter) Swap(i, j int) {
