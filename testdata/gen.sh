@@ -1,5 +1,5 @@
 #!/bin/sh
-
+cd "$(dirname "$0")" || exit 1
 i=1
 while [ "${i}" -le 2 ]; do
   for n in 100 1000 10000 100000; do
