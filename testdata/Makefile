@@ -1,13 +1,12 @@
 .PHONY: all
 all: $(addsuffix .json,\
-	100 \
-	500 \
-	1000 \
-	5000 \
-	10000 \
-	50000 \
+	000100 \
+	000500 \
+	001000 \
+	005000 \
+	010000 \
+	050000 \
 	100000 \
-	500000 \
 )
 
 %.json: student.yaml names.txt faculties.txt specialities.txt
@@ -15,3 +14,7 @@ all: $(addsuffix .json,\
 	  -a $* \
 	  -f names=names.txt,faculties=faculties.txt,specialities=specialities.txt \
 	  -o $@
+
+.PHONY: clean
+clean: $(wildcard *.json)
+	rm $^

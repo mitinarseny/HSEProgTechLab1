@@ -1,11 +1,15 @@
-.PHONY: gen
-gen:
-	$(MAKE) -C testdata
-
 .PHONY: test
 test:
 	go test -v ./...
 
+.PHONY: gen
+gen:
+	$(MAKE) -C testdata
+
+.PHONY: clean
+clean:
+	$(MAKE) -C testdata clean
+
 .PHONY: bench
 bench: $(wildcard testdata/*.json)
-	go test -bench . -args $^
+	go test -timeout 0 -bench . -args $(sort $^)
