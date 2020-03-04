@@ -12,6 +12,8 @@
 
 ## Generate data
 
+Test data is generated with [jg](https://github.com/mitinarseny/jg), so make sure it is your `$PATH`.
+
 ```bash
 make gen
 ```
